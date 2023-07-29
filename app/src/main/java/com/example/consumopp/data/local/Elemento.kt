@@ -4,6 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity (tableName = "table_elementos")
-class Elemento (private val nombre: String, private val precio: Long, private val cantidad: Int){
+class Elemento (val nombre: String, val precio: Long, val cantidad: Int){
     @PrimaryKey (autoGenerate = true) var id: Long = 0
 }
