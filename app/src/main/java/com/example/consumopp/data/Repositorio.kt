@@ -9,7 +9,7 @@ class Repositorio(private val elemetoDAO: ElementoDAO) {
         elemetoDAO.insertElemento(elemento)
     }
 
-    fun getItem(): LiveData<List<Elemento>> {
+    fun getElemento(): LiveData<List<Elemento>> {
         return elemetoDAO.getTodosElementos()
     }
 }
