@@ -12,4 +12,8 @@ class Repositorio(private val elemetoDAO: ElementoDAO) {
     fun getElemento(): LiveData<List<Elemento>> {
         return elemetoDAO.getTodosElementos()
     }
+    suspend fun deleteElementoRepo() {
+       elemetoDAO.deleteElementos()
+    }
+
 }

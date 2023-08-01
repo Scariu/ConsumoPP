@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.consumopp.data.Repositorio
 import com.example.consumopp.data.local.Elemento
 import com.example.consumopp.data.local.ElementoDataBase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ElementoViewModel(application: Application) : AndroidViewModel(application) {
@@ -22,5 +23,10 @@ class ElementoViewModel(application: Application) : AndroidViewModel(application
     fun insertItem(nombre: String, precio: Long, cantidad: Int) = viewModelScope.launch {
         val elemento = Elemento(nombre, precio, cantidad)
         repositorio.insertarElementos(elemento)
+    }
+
+    suspend fun deleteElementoView() {
+        viewModelScope.launch { Dispatchers.IO }
+            repositorio.deleteElementoRepo()
     }
 }

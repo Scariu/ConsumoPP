@@ -2,6 +2,7 @@ package com.example.consumopp.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -12,4 +13,7 @@ interface ElementoDAO {
 
     @Query("SELECT * FROM table_elementos order by id ASC")
     fun getTodosElementos(): LiveData<List<Elemento>>
+
+    @Query("DELETE FROM table_elementos")
+    suspend fun deleteElementos()
 }

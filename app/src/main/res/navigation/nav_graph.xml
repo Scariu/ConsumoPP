@@ -18,5 +18,9 @@
         android:id="@+id/secondFragmentList"
         android:name="com.example.consumopp.presentation.SecondFragmentList"
         android:label="fragment_second_list"
-        tools:layout="@layout/fragment_second_list" />
+        tools:layout="@layout/fragment_second_list" >
+        <action
+            android:id="@+id/action_secondFragmentList_self"
+            app:destination="@id/secondFragmentList" />
+    </fragment>
 </navigation>
