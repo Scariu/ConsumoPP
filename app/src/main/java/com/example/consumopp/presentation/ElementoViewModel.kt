@@ -24,6 +24,13 @@ class ElementoViewModel(application: Application) : AndroidViewModel(application
         val elemento = Elemento(nombre, precio, cantidad)
         repositorio.insertarElementos(elemento)
     }
+    fun valorTotal(elemento: List<Elemento>): String {
+            var total: Long = 0
+            for (elemento in elemento) {
+                total += elemento.precio * elemento.cantidad
+            }
+        return "$ $total"
+    }
 
     suspend fun deleteElementoView() {
         viewModelScope.launch { Dispatchers.IO }

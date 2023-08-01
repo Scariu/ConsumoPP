@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.consumopp.R
 import com.example.consumopp.data.local.Elemento
@@ -21,7 +23,6 @@ class FirstFragmentAgregar : Fragment() {
     ): View? {
         binding = FragmentFirstAgregarBinding.inflate(layoutInflater)
         initListeners()
-        valorTotal()
         return binding.root
     }
 
@@ -32,6 +33,10 @@ class FirstFragmentAgregar : Fragment() {
         binding.btnLista.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragmentAgregar_to_secondFragmentList)
         }
+        viewModel.getAllElementos().observe(viewLifecycleOwner){elemento->
+            binding.tvTotal.text = viewModel.valorTotal(elemento)
+        }
+
     }
 
     private fun getData() {
@@ -40,17 +45,8 @@ class FirstFragmentAgregar : Fragment() {
         val cantidad = binding.etCantidad.text.toString().toInt()
 
         viewModel.insertItem(nombre, precio, cantidad)
+        Toast.makeText(requireContext(), "Se ha guardado correctamente", Toast.LENGTH_LONG).show()
     }
 
-    private fun valorTotal() {
 
-        viewModel.getAllElementos().observe(viewLifecycleOwner) {
-            var total = 0
-            for (it in it) {
-                val precios = it.precio * it.cantidad
-                total = (total + precios).toInt()
-            }
-            binding.tvTotal.text = "$ $total"
-        }
-    }
 }
