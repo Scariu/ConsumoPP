@@ -9,5 +9,14 @@
         android:id="@+id/firstFragmentAgregar"
         android:name="com.example.consumopp.presentation.FirstFragmentAgregar"
         android:label="fragment_first_agregar"
-        tools:layout="@layout/fragment_first_agregar" />
+        tools:layout="@layout/fragment_first_agregar" >
+        <action
+            android:id="@+id/action_firstFragmentAgregar_to_secondFragmentList"
+            app:destination="@id/secondFragmentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragmentList"
+        android:name="com.example.consumopp.presentation.SecondFragmentList"
+        android:label="fragment_second_list"
+        tools:layout="@layout/fragment_second_list" />
 </navigation>

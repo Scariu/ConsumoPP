@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.consumopp.R
 import com.example.consumopp.data.local.Elemento
 import com.example.consumopp.databinding.FragmentFirstAgregarBinding
@@ -26,6 +27,9 @@ class FirstFragmentAgregar : Fragment() {
     private fun initListeners() {
         binding.btnGuardar.setOnClickListener {
             getData()
+        }
+        binding.btnLista.setOnClickListener{
+            findNavController().navigate(R.id.action_firstFragmentAgregar_to_secondFragmentList)
         }
     }
 
