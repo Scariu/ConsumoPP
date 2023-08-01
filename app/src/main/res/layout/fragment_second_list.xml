@@ -5,6 +5,7 @@
     android:id="@+id/clSecondFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2CB05"
     tools:context=".presentation.SecondFragmentList">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -24,7 +25,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"
+        app:tint="#FFFFFF"
         android:src="@drawable/baseline_delete_24"
+        app:backgroundTint="#734002"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
