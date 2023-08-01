@@ -1,7 +1,6 @@
 package com.example.consumopp.presentation
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.consumopp.data.local.Elemento
@@ -24,7 +23,11 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return listItem.size
     }
-
+    fun setData(listItem : List<Elemento>){
+        this.listItem.clear()
+        this.listItem.addAll(listItem)
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Elemento) {
@@ -32,8 +35,6 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
             binding.tvItemPrecio.text = item.precio.toString()
             binding.tvItemCantidad.text = item.cantidad.toString()
             binding.tvTotalCard.text = (item.precio * item.cantidad).toString()
-
         }
-
     }
 }
