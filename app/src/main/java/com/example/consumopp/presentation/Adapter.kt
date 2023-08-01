@@ -31,10 +31,10 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Elemento) {
-            binding.tvItemNombre.text = item.nombre
-            binding.tvItemPrecio.text = item.precio.toString()
-            binding.tvItemCantidad.text = item.cantidad.toString()
-            binding.tvTotalCard.text = (item.precio * item.cantidad).toString()
+            binding.tvItemNombre.text = item.nombre + " / "
+            binding.tvItemPrecio.text = "$ " + item.precio.toString() + " / "
+            binding.tvItemCantidad.text = item.cantidad.toString() + "ud. --> "
+            binding.tvTotalCard.text = "Total " + (item.precio * item.cantidad).toString()
         }
     }
 }

@@ -21,6 +21,7 @@ class FirstFragmentAgregar : Fragment() {
     ): View? {
         binding = FragmentFirstAgregarBinding.inflate(layoutInflater)
         initListeners()
+        valorTotal()
         return binding.root
     }
 
@@ -28,7 +29,7 @@ class FirstFragmentAgregar : Fragment() {
         binding.btnGuardar.setOnClickListener {
             getData()
         }
-        binding.btnLista.setOnClickListener{
+        binding.btnLista.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragmentAgregar_to_secondFragmentList)
         }
     }
@@ -39,5 +40,17 @@ class FirstFragmentAgregar : Fragment() {
         val cantidad = binding.etCantidad.text.toString().toInt()
 
         viewModel.insertItem(nombre, precio, cantidad)
+    }
+
+    private fun valorTotal() {
+
+        viewModel.getAllElementos().observe(viewLifecycleOwner) {
+            var total = 0
+            for (it in it) {
+                val precios = it.precio * it.cantidad
+                total = (total + precios).toInt()
+            }
+            binding.tvTotal.text = "$ $total"
+        }
     }
 }

@@ -96,9 +96,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Guardar"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCantidadElemento" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewTotal" />
 
     <Button
         android:id="@+id/btnLista"
@@ -109,9 +110,51 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Ver Lista"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGuardar"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#8BC34A"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCantidadElemento">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="$ 0"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvSubTitleTotal"
+                app:layout_constraintStart_toStartOf="@+id/tvSubTitleTotal"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitleTotal" />
+
+            <TextView
+                android:id="@+id/tvSubTitleTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Total a pagar"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
