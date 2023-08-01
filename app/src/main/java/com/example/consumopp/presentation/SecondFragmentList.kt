@@ -22,7 +22,7 @@ class SecondFragmentList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSecondListBinding.inflate(layoutInflater)
+        binding = FragmentSecondListBinding.inflate(inflater,container,false)
         initAdapter()
         initListeners()
         return binding.root
